@@ -50,17 +50,20 @@
     #noQRFound {
       text-align: center;
     }
+
+    #video {
+      height: 50vh;
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <h1>jsQR Demo</h1>
-  <a id="githubLink" href="https://github.com/cozmo/jsQR">View documentation on Github</a>
-  <p>Pure JavaScript QR code decoding library.</p>
-  <div id="loadingMessage">🎥 Unable to access video stream (please make sure you have a webcam enabled)</div>
+  <div id="loadingMessage">🎥 Chưa truy cập được camera</div>
   <canvas id="canvas" hidden></canvas>
   <div id="output" hidden>
-    <div id="outputMessage">No QR code detected.</div>
-    <div hidden><b>Data:</b> <span id="outputData"></span></div>
+    <div id="outputMessage" style="display: none;">No QR code detected.</div>
+    <div hidden style="display: none;"><b>Data:</b> <span id="outputData"></span></div>
+    <div id="codeTxt"></div>
   </div>
   <script>
     var video = document.createElement("video");
@@ -110,6 +113,8 @@
           outputMessage.hidden = true;
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
+
+          $("#codeTxt").html(`<b>Data: </b> ${code.data}` );
         } else {
           outputMessage.hidden = false;
           outputData.parentElement.hidden = true;
