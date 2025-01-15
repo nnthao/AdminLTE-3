@@ -17,7 +17,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div style="width: 500px" id="reader"></div>
+                <div style=" height: 50vh; width: 100%;" id="reader"></div>
+            </div>
+            <div class="col-12" id="litsBox">
+
             </div>
         </div>
     </div>
@@ -25,11 +28,15 @@
         $(function () {
             function onScanSuccess(decodedText, decodedResult) {
                 // Handle on success condition with the decoded text or result.////
-                alert(`Scan result: ${decodedText}`, decodedResult);
+                //alert(`Scan result: ${decodedText}`, decodedResult);
+                let firstParagraphText = $('#litsBox p:first').text();
+                if (decodedText && decodedText != firstParagraphText) {
+                    $("#litsBox").prepend(`<p>${decodedText}</p>`);
+                }
             }
 
             function onScanError(errorMessage) {
-                alert(errorMessage)
+                //alert(errorMessage)
             }
 
             var html5QrcodeScanner = new Html5QrcodeScanner(
