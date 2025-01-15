@@ -23,7 +23,7 @@
         }
 
         .container {
-            width: 80%;
+            width: 70%;
             margin: 5px;
         }
 
@@ -131,7 +131,7 @@
 
             function onScanSuccess(decodeText, decodeResult) {
                 //alert("You Qr is : " + decodeText, decodeResult);
-                $("#codeTxt").text(decodeText + " " + decodeResult);
+                $("#codeTxt").text(decodeText + " " + JSON.stringify(decodeResult));
                 $("#myModal").modal("show");
             }
 
