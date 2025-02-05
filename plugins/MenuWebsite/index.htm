@@ -165,14 +165,40 @@
             color: inherit;
         }
 
-        .accordion .link a:focus,  .accordion .link a:hover{
-           background: #fff;
+        .accordion .link a:focus,
+        .accordion .link a:hover {
+            background: #fff;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Hiển thị trên Desktop */
+        @media (min-width: 1024px) {
+            .show-desktop {
+                display: block;
+            }
+        }
+
+        /* Hiển thị trên Tablet */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .show-tablet {
+                display: block;
+            }
+        }
+
+        /* Hiển thị trên Mobile */
+        @media (max-width: 767px) {
+            .show-mobile {
+                display: block;
+            }
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light show-desktop hidden">
         <a class="navbar-brand" href="#">Brand</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -231,7 +257,7 @@
             </ul>
         </div>
     </nav>
-    <div class="menu-toggle" id="menuToggle">☰</div>
+    <div class="menu-toggle show-tablet show-mobile hidden" id="menuToggle">☰</div>
 
     <!-- Left Menu -->
     <div class="left-menu" id="leftMenu">
@@ -280,6 +306,10 @@
     <div class="container mt-5">
         <h1>Chào mừng đến với website!</h1>
         <p>Nội dung chính của trang web sẽ hiển thị ở đây.</p>
+        <div class="show-desktop hidden">Nội dung chỉ hiển thị trên Desktop</div>
+        <div class="show-tablet hidden">Nội dung chỉ hiển thị trên Tablet</div>
+        <div class="show-mobile hidden">Nội dung chỉ hiển thị trên Mobile</div>
+        <div class="show-tablet show-mobile hidden">Nội dung chỉ hiển thị trên Tablet & Mobile</div>
     </div>
 
     <script>
