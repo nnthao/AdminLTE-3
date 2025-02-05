@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link href='https://use.fontawesome.com/releases/v5.7.2/css/all.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
@@ -124,102 +125,79 @@
             padding: 0;
         }
 
-        .accordion a {
-            text-decoration: none
+        #accordian {
+            background: #004050;
+            color: white;
+            box-shadow: 0 5px 15px 1px rgba(0, 0, 0, 0.6), 0 0 200px 1px rgba(255, 255, 255, 0.5);
         }
 
-        .accordion {
-            width: 100%;
-            max-width: 584px;
-            margin: 30px auto 20px;
-            background: #FFF;
+        #accordian h3 {
+            background: #003040;
+            background: linear-gradient(#003040, #002535);
         }
 
-        .accordion .link {
-            cursor: pointer;
+        #accordian h3 a {
+            padding: 0 10px;
+            font-size: 12px;
+            line-height: 34px;
             display: block;
-            padding: 15px 15px 15px 42px;
-            color: #4D4D4D;
-            font-size: 14px;
-            font-weight: 700;
-            border-bottom: 1px solid #CCC;
-            position: relative;
-            -webkit-transition: all 0.4s ease;
-            -o-transition: all 0.4s ease;
-            transition: all 0.4s ease
-        }
-
-        .accordion li:last-child .link {
-            border-bottom: 0
-        }
-
-        .accordion li i {
-            position: absolute;
-            top: 16px;
-            left: 12px;
-            font-size: 18px;
-            color: #595959;
-            -webkit-transition: all 0.4s ease;
-            -o-transition: all 0.4s ease;
-            transition: all 0.4s ease
-        }
-
-        .accordion li i.fa-chevron-down {
-            right: 12px;
-            left: auto;
-            font-size: 16px
-        }
-
-        .accordion li.open .link {
-            color: #AA00FF
-        }
-
-        .accordion li.open i {
-            color: #AA00FF
-        }
-
-        .accordion li.open i.fa-chevron-down {
-            -webkit-transform: rotate(180deg);
-            -ms-transform: rotate(180deg);
-            -o-transform: rotate(180deg);
-            transform: rotate(180deg)
-        }
-
-        .accordion .submenu {
-            display: none;
-            background: #444359;
-            font-size: 14px
-        }
-
-        .accordion .submenu li {
-            border-bottom: 1px solid #4b4a5e
-        }
-
-        .accordion .submenu a {
-            display: block;
+            color: white;
             text-decoration: none;
-            color: #d9d9d9;
-            padding: 12px;
-            padding-left: 42px;
-            -webkit-transition: all 0.25s ease;
-            -o-transition: all 0.25s ease;
-            transition: all 0.25s ease
         }
 
-        .accordion .submenu a:hover {
-            background: #b63b4d;
-            color: #FFF
+        #accordian h3:hover {
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.7);
         }
 
-        .accordion .link a {
-            padding: 0;
-            font-size: inherit;
-            color: inherit;
+        #accordian i {
+            margin-right: 10px;
         }
 
-        .accordion .link a:focus,
-        .accordion .link a:hover {
-            background: #fff;
+        #accordian li {
+            list-style-type: none;
+        }
+
+        #accordian ul ul li a,
+        #accordian h4 {
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            line-height: 27px;
+            display: block;
+            padding: 0 15px;
+            transition: all 0.15s;
+            position: relative;
+        }
+
+        #accordian ul ul li a:hover {
+            background: #003545;
+            border-left: 5px solid lightgreen;
+        }
+
+        #accordian ul ul {
+            display: none;
+        }
+
+        #accordian li.active>ul {
+            display: block;
+        }
+
+        #accordian ul ul ul {
+            margin-left: 15px;
+            border-left: 1px dotted rgba(0, 0, 0, 0.5);
+        }
+
+        #accordian a:not(:only-child):after {
+            content: "\f104";
+            font-family: fontawesome;
+            position: absolute;
+            right: 10px;
+            top: 0;
+            font-size: 14px;
+        }
+
+        #accordian .active>a:not(:only-child):after {
+            content: "\f107";
         }
     </style>
     <style>
@@ -293,41 +271,79 @@
         <div class="menu-toggle " id="menuToggle">☰</div>
         <div class="left-menu" id="leftMenu">
             <button class="close-button" onclick="closeDiv()">X</button>
-            <ul id="accordion" class="accordion">
-                <li>
-                    <div class="link"><i class="fa fa-laptop"></i><a href="https://vnptquangngai.vn/">Laptops</a><i
-                            class="fa fa-chevron-down"></i></div>
-                    <ul class="submenu">
-                        <li><a href="https://www.24h.com.vn/">Dell Acron</a></li>
-                        <li><a href="#">HP Envy</a></li>
-                        <li><a href="#">Macbook Air</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="link"><i class="fa fa-tv"></i>Smart TV<i class="fa fa-chevron-down"></i></div>
-                    <ul class="submenu">
-                        <li><a href="#">Sony Bravia</a></li>
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">MI</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="link"><i class="fa fa-mobile"></i>Mobiles<i class="fa fa-chevron-down"></i></div>
-                    <ul class="submenu">
-                        <li><a href="#">Samsung S9</a></li>
-                        <li><a href="#">Apple X</a></li>
-                        <li><a href="#">Honor Play</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <div class="link"><i class="fa fa-globe"></i>Search Engines<i class="fa fa-chevron-down"></i></div>
-                    <ul class="submenu">
-                        <li><a href="#">Google</a></li>
-                        <li><a href="#">Bing</a></li>
-                        <li><a href="#">Yahoo</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div id="accordian">
+                <ul>
+                    <li>
+                        <h3><a href="#"><i class="fa fa-lg fa-tachometer"></i>Dashboard</a></h3>
+                        <ul>
+                            <li><a href="#">Reports</a></li>
+                            <li><a href="#">Search</a></li>
+                            <li><a href="#">Graphs</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li >
+                        <h3><a href="#"><i class="fa fa-lg fa-tasks"></i>Tasks </a></h3>
+                        <ul>
+                            <li><a href="#">Today's tasks</a></li>
+                            <li >
+                                <a href="#">DrillDown </a>
+                                <ul>
+                                    <li><a href="#">Today's tasks</a></li>
+                                    <li><a href="#">Urgent</a></li>
+                                    <li>
+                                        <a href="#">Overdues</a>
+                                        <ul>
+                                            <li><a href="#">Today's tasks</a></li>
+                                            <li><a href="#">Urgent</a></li>
+                                            <li><a href="#">Overdues</a></li>
+                                            <li><a href="#">Recurring</a></li>
+                                            <li><a href="#">Settings</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Recurring</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">Overdues</a>
+                                <ul>
+                                    <li><a href="#">Today's tasks</a></li>
+                                    <li><a href="#">Urgent</a></li>
+                                    <li><a href="#">Overdues</a></li>
+                                    <li><a href="#">Recurring</a></li>
+                                    <li><a href="#">Settings</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Recurring</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><a href="#"><i class="fa fa-lg fa-calendar"></i></span>Calendar</a></h3>
+                        <ul>
+                            <li><a href="#">Current Month</a></li>
+                            <li><a href="#">Current Week</a></li>
+                            <li><a href="#">Previous Month</a></li>
+                            <li><a href="#">Previous Week</a></li>
+                            <li><a href="#">Next Month</a></li>
+                            <li><a href="#">Next Week</a></li>
+                            <li><a href="#">Team Calendar</a></li>
+                            <li><a href="#">Private Calendar</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3><a href="#"><i class="fa fa-lg fa-heart"></i>Favourites</a></h3>
+                        <ul>
+                            <li><a href="#">Global favs</a></li>
+                            <li><a href="#">My favs</a></li>
+                            <li><a href="#">Team favs</a></li>
+                            <li><a href="#">Settings</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
 
 
@@ -365,31 +381,27 @@
             });
         });
     </script>
-    <script type='text/javascript'>$(function () {
-            var Accordion = function (el, multiple) {
-                this.el = el || {};
-                this.multiple = multiple || false;
+    <script>
+        $(document).ready(function () {
+            $("#accordian a").click(function () {
+                var link = $(this);
+                var closest_ul = link.closest("ul");
+                var parallel_active_links = closest_ul.find(".active")
+                var closest_li = link.closest("li");
+                var link_status = closest_li.hasClass("active");
+                var count = 0;
 
-                var links = this.el.find('.link');
+                closest_ul.find("ul").slideUp(function () {
+                    if (++count == closest_ul.find("ul").length)
+                        parallel_active_links.removeClass("active");
+                });
 
-                links.on('click', { el: this.el, multiple: this.multiple }, this.dropdown)
-            }
-
-            Accordion.prototype.dropdown = function (e) {
-                var $el = e.data.el;
-                $this = $(this),
-                    $next = $this.next();
-
-                $next.slideToggle();
-                $this.parent().toggleClass('open');
-
-                if (!e.data.multiple) {
-                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-                };
-            }
-
-            var accordion = new Accordion($('#accordion'), false);
-        });
+                if (!link_status) {
+                    closest_li.children("ul").slideDown();
+                    closest_li.addClass("active");
+                }
+            })
+        })
     </script>
 
 </body>
