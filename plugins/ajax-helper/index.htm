@@ -27,8 +27,6 @@
     <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
   </form>
   <script>
-   //tạo 1 method khi click button có id = btnSubmit sẽ gửi dữ liệu đến url = 'http://localhost:8080/api/login' với method = POST và dùng var fb - new FormData để thêm dữ liẹu vào ajax và code ajax like $.post(), bắt sự kiên khi ajax thành công và thất bại ghi rõ complete: hay error: cho dễ nhận biết, nếu thành công thì log ra dữ liệu trả về, nếu thất bại thì log ra lỗi
-  
     $('#btnSubmit').click(function(){
       
       let fb = new FormData();
