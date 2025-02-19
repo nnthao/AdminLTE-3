@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+
+  <script src="./ajax-helper.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Form control: input</h2>
+  <div >
+    <div class="form-group">
+      <label for="usr">Name:</label>
+      <input type="text" class="form-control" id="usr" name="username">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+  </form>
+  <script>
+   //tạo 1 method khi click button có id = btnSubmit sẽ gửi dữ liệu đến url = 'http://localhost:8080/api/login' với method = POST và dùng var fb - new FormData để thêm dữ liẹu vào ajax và code ajax like $.post(), bắt sự kiên khi ajax thành công và thất bại ghi rõ complete: hay error: cho dễ nhận biết, nếu thành công thì log ra dữ liệu trả về, nếu thất bại thì log ra lỗi
+  
+    $('#btnSubmit').click(function(){
+      
+      let fb = new FormData();
+      fb.append('Id', 0);
+      fb.append('Ten', "Thao");
+      fb.append('NgayMuaStr', "19/02/2025");
+
+      ajaxHelper.postData('http://thao-stock.herokuapp.com/MuaHang/ThemOrCapNhat',fb,
+        function(success){
+          console.log(success);
+        }, function(err){
+          console.log(err);
+        });
+    });
+  </script>
+</div>
+
+</body>
+</html>

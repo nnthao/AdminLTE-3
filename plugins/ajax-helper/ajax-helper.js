@@ -1,12 +1,34 @@
-const ajaxHelper = {
+var ajaxHelper = {
     name: "Demo Object",
     
-    sayHello: function() {
-        console.log("Xin chào! Đây là " + this.name);
-        this.sayGoodbye(); // Gọi phương thức khác trong object
+    postData: function(url, data, successCallback, errorCallback) {
+        $.ajax({
+            url: url,
+            data: data,
+            processData: false,
+            contentType: false,
+            type: "POST",
+            success: function (data) {
+                successCallback(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                errorCallback(textStatus);
+            }
+        });
     },
     
-    sayGoodbye: function() {
-        console.log("Tạm biệt từ " + this.name);
+    getById: function(url, successCallback, errorCallback) {
+        $.ajax({
+            url: url,
+            processData: false,
+            contentType: false,
+            type: "GET",
+            success: function (data) {
+                successCallback(data);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                errorCallback(textStatus);
+            }
+        });
     }
 };
